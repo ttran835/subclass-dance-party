@@ -31,16 +31,30 @@ $(document).ready(function() {
       Math.random() * 1000
       
     );
-    $('body').append(dancer.$node);
+
+    $('.dancer').mouseover(function(event) {
+      window.dancers.forEach(function(dancer) {
+        dancer.getSmol();
+      });
+    });
+
+    $('.dancer').mouseover(function (event) {
+      window.dancers.forEach(function(dancer) {
+        dancer.moveAway();
+      });
+    }); 
+
+    $('.dancers').append(dancer.$node);
     window.dancers.push(dancer);
   });
 
-   //to create line up method;
-   $(".lineItUp").on("click", function(event) {
+  //to create line up method;
+  $('.lineItUp').on('click', function(event) {
     window.dancers.forEach(function(dancer) {
-      console.log(dancer)
       dancer.lineUp();
     });
   });
+  
+  
 });
 

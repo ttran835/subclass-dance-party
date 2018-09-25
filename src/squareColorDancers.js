@@ -1,5 +1,3 @@
-
-
 var squareColorDancers = function (top, left, timeBetweenSteps) {
   makeDancer.call(this, top, left, timeBetweenSteps);
   // this.$node = ('<span class="squareCol"></span>')

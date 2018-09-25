@@ -46,7 +46,8 @@ var makeDancer = function (top, left, timeBetweenSteps) {
   this.$node = $('<span class="dancer"></span>');
   this.step();
   // this.step(timeBetweenSteps);
-  this.setPosition(top, left); //invoked this.step after new makeDancer() is created; 
+  this.setPosition(top, left);
+  //invoked this.step after new makeDancer() is created; 
 };
 
 makeDancer.prototype.step = function (timeBetweenSteps) {
@@ -66,5 +67,22 @@ makeDancer.prototype.lineUp = function () {
     left: 0
   };
   this.$node.css(styleSettings);
+};
+
+makeDancer.prototype.moveAway = function () {
+  var styleSettings = {
+    top: Math.random() * 300,
+    left: Math.random() * 300
+  }; 
+  this.$node.animate(styleSettings);
+};
+
+makeDancer.prototype.getSmol = function () { 
+  var styleSettings = {
+    height: '20px',
+    width: '20px'
+  };
+  this.$node.css(styleSettings);
+  
 };
 
