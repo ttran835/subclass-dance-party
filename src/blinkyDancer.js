@@ -35,11 +35,9 @@ makeBlinkyDancer.prototype.step = function () {
   oldStep();
   // console.log(this)
   // makeDancer.prototype.step();
-  this.$node.toggle();
-
-  
-
+  this.$node.fadeToggle();
 };
+
 
 // var test = new makeBlinkyDancer(); //this creates a copy of the obj ; 
 

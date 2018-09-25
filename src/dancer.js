@@ -41,28 +41,30 @@ PsuedoClassical
 */
 
 var makeDancer = function (top, left, timeBetweenSteps) {
-  this.$node = $('<span class="dancer"></span>');
-  this.top = top;
-  this.left = left;
+  // this.$node = $('<span class="squareDancer"></span>')
   this.timeBetweenSteps = timeBetweenSteps; 
+  this.$node = $('<span class="dancer"></span>');
+  this.step();
   // this.step(timeBetweenSteps);
-  this.setPosition(); //invoked this.step after new makeDancer() is created; 
+  this.setPosition(top, left); //invoked this.step after new makeDancer() is created; 
 };
 
 makeDancer.prototype.step = function (timeBetweenSteps) {
-  setTimeout(function () {
-    this.step();
-  }.bind(this), this.timeBetweenSteps);
+  setTimeout(this.step.bind(this), this.timeBetweenSteps);
 };
 
-makeDancer.prototype.setPosition = function () {
+makeDancer.prototype.setPosition = function (top, left) {
   var styleSettings = {
-    top: this.top,
-    left: this.left
+    top: top,
+    left: left
+  };
+  this.$node.css(styleSettings);
+};  
+
+makeDancer.prototype.lineUp = function () {
+  var styleSettings = {
+    left: 0
   };
   this.$node.css(styleSettings);
 };
-
-
-
 
